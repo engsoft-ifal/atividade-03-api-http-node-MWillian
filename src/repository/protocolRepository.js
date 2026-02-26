@@ -1,20 +1,20 @@
-import {protocols} from'../data/protocolDb.js'
+import {chamados} from'../data/chamadosDb.js'
 
-export function getAllProtocols() {
-    return protocols;
+export function getAllChamados() {
+    return chamados;
 }
 
-export function getProtocolById(id) {
-    return protocols.find(protocol => protocol.id === Number(id));
+export function getChamadoById(id) {
+    return chamados.find(chamado => chamado.id === Number(id));
 }
 
-export function createProtocol(protocol) {
-    const newProtocol = {
-        id: protocols.length + 1,
-        nome: protocol.name,
-        tipo: protocol.tipo,
-        data: new Date()
+export function createChamado(chamado) {
+    const newChamado = {
+        id: chamados.length + 1,
+        solicitante: chamado.solicitante,
+        descricao: chamado.descricao,
+        prioridade: chamado.prioridade
     };
-    protocols.push(newProtocol);
-    return newProtocol;
+    chamados.push(newChamado);
+    return newChamado;
 }
