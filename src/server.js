@@ -48,7 +48,7 @@ const server = http.createServer((req, res) => {
     req.on('end', () => {
       try{
         const data = JSON.parse(body);
-        const newChamado = new Chamado(data.solicitante,data.descricao,data.prioridade);
+        const newChamado = new Chamado(chamados.length+1,data.solicitante,data.descricao,data.prioridade);
         if (!HasValidFields(newChamado)) {
           throw new ValidationError("Campos obrigatórios ausentes ou com tipo inválido.");
         }
@@ -73,7 +73,7 @@ const server = http.createServer((req, res) => {
 
 function CreateChamado(chamado) {
     const newChamado = new Chamado( 
-        chamados.length + 1,
+        chamado.id,
         chamado.solicitante,
         chamado.descricao,
         chamado.prioridade
@@ -141,6 +141,6 @@ class UnprocessableEntityError extends AppError {
   constructor(message) {
     super(message, 422);
   }
-};
+}
 
 server.listen(3000); 
