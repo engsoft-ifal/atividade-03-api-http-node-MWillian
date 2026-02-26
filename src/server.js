@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
 
   if (req.method === 'GET' && req.url ==='/chamados'){
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({chamados}))
+    res.end(JSON.stringify(chamados))
     return; 
   };
 
@@ -30,7 +30,7 @@ const server = http.createServer((req, res) => {
           throw new NotFoundError("Recurso não encontrado.");
         }
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ chamado }));
+        res.end(JSON.stringify(chamado));
         return;
       } 
     } catch (error) {
