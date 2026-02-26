@@ -46,11 +46,11 @@ Os dados deverão ser armazenados em memória (array).
 
 Edite esta seção antes de iniciar.
 
-Nome completo:
-Matrícula:
-Variação calculada:
+Nome completo: Matheus Willian do Nascimento Oliveira
+Matrícula: 2023002369
+Variação calculada: 2
 
-Cálculo da variação:
+Cálculo da variação: 
 Último dígito da matrícula % 4
 
 Exemplo:
