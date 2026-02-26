@@ -47,8 +47,10 @@ Os dados deverão ser armazenados em memória (array).
 Edite esta seção antes de iniciar.
 
 Nome completo: Matheus Willian do Nascimento Oliveira
+
 Matrícula: 2023002369
-Variação calculada: 2
+
+Variação calculada: 1
 
 Cálculo da variação: 
 Último dígito da matrícula % 4
