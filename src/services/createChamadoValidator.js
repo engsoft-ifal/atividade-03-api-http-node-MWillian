@@ -1,22 +1,23 @@
 export class CreateChamadoValidator{
     static Validate(chamado){  
-      this.IsValidSocilitante(chamado.solicitante);
-      this.IsValidDescription(chamado.descricao)
-      this.IsValidPriority(chamado.prioridade)
+      return (
+        this.IsValidSocilitante(chamado.solicitante) &&
+        this.IsValidDescription(chamado.descricao) &&
+        this.IsValidPriority(chamado.prioridade));
     };
-  IsValidSocilitante(solicitante){
+  static IsValidSocilitante(solicitante){
     if (!solicitante || typeof solicitante !== 'string') {
         return false;
     }
     return true;
   }
-  IsValidDescription(description){
+  static IsValidDescription(description){
     if (!description || typeof description !== 'string') {
         return false;
     };
     return true;
   }
-  IsValidPriority(priority){
+  static IsValidPriority(priority){
     if (!priority || typeof priority !== 'string') {
         return false;
     };

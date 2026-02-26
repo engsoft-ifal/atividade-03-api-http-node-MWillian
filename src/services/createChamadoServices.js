@@ -7,7 +7,7 @@ export function createNewChamado(chamado){
         try {
             return createChamado(chamado);
         }catch(error){
-            throw new AppError("Erro interno do sistema", 500);
+            throw new AppError("Erro interno do sistema");
         }
     }else{
             throw new ValidationError("Corpo da requisição inválida.");

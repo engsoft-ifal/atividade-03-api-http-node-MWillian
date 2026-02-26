@@ -1,19 +1,26 @@
 import http from 'http';
-import { findAllProtocols } from './services/getProtocolServices.js';
-import { findProtocolById } from './services/getProtocolServices.js';
-import { Protocol } from './entities/chamados.js'
-import { createNewProtocol } from './services/createProtocolServices.js';
-
+import * as ChamadoController from '../src/controller/chamadosController.js'
+import * as ApiStatusController from '../src/controller/apiStatusController.js'
 const server = http.createServer((req, res) => { 
 
   if (req.method === 'GET' && req.url === '/health') { 
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ status: 'ok' })); 
-    return; 
+    return ApiStatusController.GetHealth(res);
+  }
+
+  if (req.method === 'GET' && req.url ==='/chamados'){
+    return ChamadoController.GetChamados(res);
+  };
+
+  if (req.method === 'GET' && req.url.startsWith('/chamados/')){
+    return ChamadoController.GetChamado(req,res);
+  };
+  
+  if(req.method === 'POST' && req.url === '/criar-chamado'){
+    return ChamadoController.CreateChamado(req,res);
   }
 
   res.writeHead(404,{'Content-type': 'application/json' })
-  res.end(JSON.stringify({error: 'Bad request.'}))
+  res.end(JSON.stringify({error: 'Requisição inválida.',}))
 });
 
 server.listen(3000); 
