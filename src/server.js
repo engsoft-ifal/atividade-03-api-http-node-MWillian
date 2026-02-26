@@ -110,7 +110,7 @@ function HasValidFields(chamado){
 };
 
 function hasValidBusinessRules(chamado){
-  const prioridadesPermitidas = ['Alta','Média','Baixa'];
+  const prioridadesPermitidas = ['Alta','alta','media','Media','baixa','Baixa'];
   const prioridadeValida = prioridadesPermitidas.includes(chamado.prioridade);
   const descricaoLonga = chamado.descricao.length >= 10;
   return prioridadeValida && descricaoLonga;
