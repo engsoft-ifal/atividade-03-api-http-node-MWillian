@@ -8,9 +8,8 @@ export function findAllChamados() {
 }
 
 export function findChamadoById(id) {
-    const validator = new GetChamadoValidator();
-    if (validator.isValidId(id)) {
-        const chamado = getChamadoById(id)
+    if (GetChamadoValidator.isValidId(id)) {
+        const chamado = getChamadoById(id);
         if (!chamado) {
             throw new NotFoundError('Chamado não encontrado');
         }

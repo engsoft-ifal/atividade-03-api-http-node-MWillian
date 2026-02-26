@@ -1,4 +1,4 @@
-export class Chamados {
+export class Chamado {
     id;
     solicitante;
     descricao;

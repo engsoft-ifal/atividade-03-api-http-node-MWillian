@@ -1,7 +1,7 @@
-import {Chamados} from '../entities/chamados.js'
+import {Chamado} from '../entities/chamado.js'
 
 export const chamados = [
-    new Chamados(1,"Recursos Humanos","Reparo de computador","Média"),
-    new Chamados(1,"Recepção","Troca de tonner da impressora","Alta"),
-    new Chamados(1,"Segurança do trabalho","Troca de monitor","Baixa")
+    new Chamado(1,"Recursos Humanos","Reparo de computador","Média"),
+    new Chamado(2,"Recepção","Troca de tonner da impressora","Alta"),
+    new Chamado(3,"Segurança do trabalho","Troca de monitor","Baixa")
 ]

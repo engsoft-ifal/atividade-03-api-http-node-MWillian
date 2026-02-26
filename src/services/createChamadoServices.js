@@ -3,12 +3,11 @@ import { createChamado } from "../repository/chamadoRepository.js";
 import { CreateChamadoValidator } from "./createChamadoValidator.js";
 
 export function createNewChamado(chamado){
-    const validator = new CreateChamadoValidator();
-    if(validator.Validate(chamado)){
+    if(CreateChamadoValidator.Validate(chamado)){
         try {
-            createChamado(chamado)
+            return createChamado(chamado);
         }catch(error){
-            throw new AppError("Erro interno do sistema");
+            throw new AppError("Erro interno do sistema", 500);
         }
     }else{
             throw new ValidationError("Corpo da requisição inválida.");
