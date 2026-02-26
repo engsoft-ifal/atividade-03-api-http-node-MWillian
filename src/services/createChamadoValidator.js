@@ -1,26 +1,15 @@
 export class CreateChamadoValidator{
-    static Validate(chamado){  
+    static hasValidFields(chamado){  
       return (
-        this.IsValidSocilitante(chamado.solicitante) &&
-        this.IsValidDescription(chamado.descricao) &&
-        this.IsValidPriority(chamado.prioridade));
+        chamado.solicitante && typeof chamado.solicitante === 'string' &&
+        chamado.descricao && typeof chamado.descricao === 'string' &&
+        chamado.prioridade && typeof chamado.prioridade === 'string'
+      );
     };
-  static IsValidSocilitante(solicitante){
-    if (!solicitante || typeof solicitante !== 'string') {
-        return false;
+    static hasValidBusinessRules(chamado){
+      const prioridadesPermitidas = ['Alta','Média','Baixa'];
+      const prioridadeValida = prioridadesPermitidas.includes(chamado.prioridade);
+      const descricaoLonga = chamado.descricao.length >= 10;
+      return prioridadeValida && descricaoLonga;
     }
-    return true;
-  }
-  static IsValidDescription(description){
-    if (!description || typeof description !== 'string') {
-        return false;
-    };
-    return true;
-  }
-  static IsValidPriority(priority){
-    if (!priority || typeof priority !== 'string') {
-        return false;
-    };
-    return true;
-  };
 };

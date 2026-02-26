@@ -17,7 +17,7 @@ export class NotFoundError extends AppError {
   }
 }
 
-export class BusinessError extends AppError {
+export class UnprocessableEntityError extends AppError {
   constructor(message) {
     super(message, 422);
   }
